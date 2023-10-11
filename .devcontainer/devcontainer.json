@@ -1,11 +1,14 @@
 {
+  "name": "Rails project development",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "rails",
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "hostRequirements": {
     "cpus": 4
   },
   "waitFor": "onCreateCommand",
-  "updateContentCommand": "bundle install",
-  "postCreateCommand": "",
+  // Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": ".devcontainer/boot.sh",
   "postAttachCommand": {
     "server": "rails server"
   },
